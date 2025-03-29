@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { UserProvider } from "./Context/UserContext";
+import UserContext from "./Context/UserContext";
+import { useContext } from "react";
+import Home from "./components/Home";
+import Input from "./components/Input";
+import Grades from "./components/Grades";
+import Header from "./components/Header";
+import Cgpa from "./components/Cgpa"; 
+import Marks from "./components/Marks";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <UserProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Input/>}/>
+          <Route path='/home' element={<><Header/><Home/></>}/>
+          <Route path='/marks' element={<><Header/><Marks/></>}/>
+          <Route path='/grades' element={<><Header/><Grades/></>}/>
+          <Route path='/cgpa' element={<><Header/><Cgpa/></>}/>
+        </Routes>
+      </Router>
+      
+    </UserProvider>
   );
 }
 
