@@ -5,7 +5,8 @@ function Header() {
     <div>
      <div style={{backgroundColor:"#26262c"}}className="flex items-center flex-col h-screen w-80">
       <div className="flex flex-col gap-6 p-4 justify-center mt-auto mb-auto">
-      <Link className={`${btnclass} hover:border-t-2`} to="/Home">HOME</Link>
+      <Link className={`${btnclass} hover:border-t-2`} to="/home">HOME</Link>
+      <Link className={btnclass} to='/info'>INFO</Link>
       <Link className={btnclass} to='/marks'>MARKS</Link>
       <Link to='/grades' className={btnclass}>GRADES</Link>
       <Link to='/cgpa' className={btnclass}>CGPA</Link>

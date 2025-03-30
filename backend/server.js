@@ -155,7 +155,7 @@ app.get("/personalinfo", async (req, res) => {
     });
 
     const text = await response.text();
-    res.json({ content: text });
+    res.json(text);
   } catch (error) {
     console.error("Error fetching personal info:", error.message);
     res.status(500).json({ error: "Error fetching personal info" });

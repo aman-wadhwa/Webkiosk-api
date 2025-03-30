@@ -20,7 +20,7 @@ function Cgpa() {
         <table className="w-full border-none shadow-lg">
           <thead className="">
             <tr>
-              <td className="border border-gray-400 px-4 py-3 text-left">Semester</td>
+              <td className="border border-gray-400 px-4 py-3 text-center">Semester</td>
               <td className="border border-gray-400 px-4 py-3 text-center">SGPA</td>
               <td className="border border-gray-400 px-4 py-3 text-center">CGPA</td>
             </tr>
@@ -30,7 +30,7 @@ function Cgpa() {
               cgpa.map((x)=>{
                 return (
                   <tr>
-                    <td className="border border-gray-400 px-4 py-3 text-left">{x[0]}</td>
+                    <td className="border border-gray-400 px-4 py-3 text-center">{x[0]}</td>
                     <td className="border border-gray-400 px-4 py-3 text-center">{x[1]}</td>
                     <td className="border border-gray-400 px-4 py-3 text-center">{x[2]}</td>
                   </tr>

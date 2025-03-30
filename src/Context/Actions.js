@@ -117,24 +117,21 @@ export const fetchSem = async () => {
 
 
 
-// export const getPersonalInfo = async () => {
-//     const response = await fetch('http://localhost:5000/personalinfo', {
-//       credentials:"include"
-//     })
-//     const data = await response.text();
-//     // console.log("Personal info:", data);
-//     const parsedDocument = new DOMParser().parseFromString(data, "text/html");
-//     const table = parsedDocument.querySelector('table')
-//     const info = {}
-//     const rows = table.querySelectorAll('tr')
-//     // rows.forEach(row=>{
-//     //   const cols = row.querySelectorAll('td')
-//     //   info[cols[0].innerText.replaceAll(' ','')] = cols[1].innerText.trim()
-//     // })
-//     for(let i=1;i<=7 ;i++){
-//       const row = rows[i];
-//       const cols = row.querySelectorAll('td')
-//       info[cols[0].innerText.replaceAll(' ','')] = cols[1].innerText.trim()
-//     }
-//     console.log(info)
-//   }
+export const getInfo = async () => {
+    const response = await fetch('http://localhost:5000/personalinfo', {
+      credentials:"include"
+    })
+    const data = await response.text();
+    const parsedDocument = new DOMParser().parseFromString(data, "text/html");
+    const table = parsedDocument.querySelector('table')
+    const info = []
+    const rows = table.querySelectorAll('tr')
+    
+    for(let i=0;i<7 ;i++){
+      const row = rows[i];
+      const cols = row.querySelectorAll('td')
+      info.push([cols[0].innerText.trim().replace(/\\[rnt]/g, '').replace(/\s+/g, ' '), cols[1].innerText.trim().replace(/\\[rn]/g, '').replace(/\s+/g, ' ')])
+    }
+    // console.log(info)
+    return info
+  }
