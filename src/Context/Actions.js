@@ -43,16 +43,16 @@ export const getGrades = async (sem) => {
     // console.log(data)
     const parsedDocument = new DOMParser().parseFromString(data, "text/html");
     const tables = parsedDocument.querySelectorAll('table');
-    // console.log(tables.innerHTML)
     const table = tables[2];
-    // console.log(table.innerHTML)
     const rows = table.querySelectorAll('tbody tr')
     const grades = []
+    
     rows.forEach((row)=>{
       const cols = row.querySelectorAll('td')
       grades.push([cols[0].innerText.trim(), cols[2].innerText.trim(), cols[4].innerText.trim()]);
     })
     console.log(grades)
+    console.log(Array.isArray(grades))
     return grades
 };
 
