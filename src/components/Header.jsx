@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 function Header() {
-  const btnclass = 'font-sans w-80 flex items-center justify-center gap-2 p-2 text-white transition-all duration-200 hover:p-4 border-t-2 hover:outline-white hover:outline-offset-2 border-b-2 bg-transparent'
+  const btnclass = 'font-sans w-60 flex items-center justify-center gap-2 p-2 text-white transition-all duration-200 hover:p-4 border-t-2 hover:outline-white hover:outline-offset-2 border-b-2 bg-transparent'
   return (
     <div>
-     <div style={{backgroundColor:"#26262c"}}className="flex items-center flex-col h-screen w-80">
+     <div style={{backgroundColor:"#26262c"}}className="flex items-center flex-col h-screen w-60 border-r border-white-500">
       <div className="flex flex-col gap-6 p-4 justify-center mt-auto mb-auto">
       <Link className={`${btnclass} hover:border-t-2`} to="/home">HOME</Link>
       <Link className={btnclass} to='/info'>INFO</Link>
