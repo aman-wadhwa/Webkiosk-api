@@ -49,7 +49,7 @@ export const getGrades = async (sem) => {
     
     rows.forEach((row)=>{
       const cols = row.querySelectorAll('td')
-      grades.push([cols[0].innerText.trim(), cols[2].innerText.trim(), cols[4].innerText.trim()]);
+      grades.push([cols[1].innerText.trim(), cols[0].innerText.trim(), cols[2].innerText.trim(), cols[4].innerText.trim()]);
     })
     console.log(grades)
     console.log(Array.isArray(grades))
@@ -74,7 +74,7 @@ export const getMarks = async (sem) => {
     const marks = []
     rows.forEach((row)=>{
       const cols = row.querySelectorAll('td')
-      marks.push([cols[2].innerText.trim(), cols[3].innerText.trim(), cols[7].innerText.trim(), cols[6].innerText.trim()]);
+      marks.push([cols[1].innerText.trim(),cols[2].innerText.trim(), cols[3].innerText.trim(), cols[7].innerText.trim(), cols[6].innerText.trim()]);
     })
     console.log(marks)
     return marks

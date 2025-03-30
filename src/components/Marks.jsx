@@ -4,7 +4,7 @@ import UserContext from "../Context/UserContext";
 import Header from "./Header";
 function Marks() {
     const {semesters} = useContext(UserContext)
-  const [selected, setselected] = useState("All")
+  const [selected, setselected] = useState("ALL")
   const [marks, setMarks] = useState([])
   useEffect(()=>{
     change('ALL')
@@ -17,7 +17,6 @@ function Marks() {
 
   const handleChange = (evt) => {
     evt.preventDefault()
-    change(evt.target.value)
     setselected(evt.target.value)
   }
   
@@ -46,13 +45,13 @@ function Marks() {
           </thead>
           <tbody>
             {marks.length>0 ? (
-              marks.map((mark)=>{
+              marks.filter((mark)=>(mark[0]===selected || selected==='ALL')).map((mark)=>{
                 return (
                   <tr>
-                    <td className="border border-gray-400 px-4 py-3 text-left">{mark[0]}</td>
-                    <td className="border border-gray-400 px-4 py-3 text-center">{mark[1]}</td>
+                    <td className="border border-gray-400 px-4 py-3 text-left">{mark[1]}</td>
                     <td className="border border-gray-400 px-4 py-3 text-center">{mark[2]}</td>
                     <td className="border border-gray-400 px-4 py-3 text-center">{mark[3]}</td>
+                    <td className="border border-gray-400 px-4 py-3 text-center">{mark[4]}</td>
                   </tr>
                 )
               })

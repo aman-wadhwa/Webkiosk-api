@@ -5,7 +5,7 @@ import Header from "./Header";
 function Grades() {
 
   const {semesters} = useContext(UserContext)
-  const [selected, setselected] = useState("All")
+  const [selected, setselected] = useState("ALL")
   const [grades, setGrades] = useState([])
   useEffect(()=>{
     change('ALL')
@@ -18,7 +18,6 @@ function Grades() {
 
   const handleChange = (evt) => {
     evt.preventDefault()
-    change(evt.target.value)
     setselected(evt.target.value)
   }
   
@@ -46,12 +45,12 @@ function Grades() {
           </thead>
           <tbody>
             {grades.length>0 ? (
-              grades.map((grade)=>{
+              grades.filter((grade)=>(selected==='ALL' || grade[0]===selected)).map((grade)=>{
                 return (
                   <tr>
-                    <td className="border border-gray-400 px-4 py-3 text-left">{grade[0]}</td>
-                    <td className="border border-gray-400 px-4 py-3 text-center">{grade[1]}</td>
+                    <td className="border border-gray-400 px-4 py-3 text-left">{grade[1]}</td>
                     <td className="border border-gray-400 px-4 py-3 text-center">{grade[2]}</td>
+                    <td className="border border-gray-400 px-4 py-3 text-center">{grade[3]}</td>
                   </tr>
                 )
               })
