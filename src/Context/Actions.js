@@ -1,6 +1,6 @@
 
 export const fetchUser = async () => {
-    await fetch("http://localhost:5000/proxy", {
+    await fetch("api/proxy", {
       method: "GET",
       credentials: "include", 
     });
@@ -9,14 +9,14 @@ export const fetchUser = async () => {
 
 export const login = async (roll, pass, dispatch) => {
 
-    await fetch("http://localhost:5000/action", {
+    await fetch("api/action", {
       method: "POST",
       credentials: "include" ,
       headers : {"Content-Type" : "application/json"},
       body : JSON.stringify({roll, pass})
     });
 
-    const respons = await fetch("http://localhost:5000/action", {
+    const respons = await fetch("api/action", {
       method: "POST",
       credentials: "include" ,
       headers : {"Content-Type" : "application/json"},
@@ -32,7 +32,7 @@ export const login = async (roll, pass, dispatch) => {
 
 export const getGrades = async (sem) => {
   console.log(sem)
-    const response = await fetch("http://localhost:5000/grades", {
+    const response = await fetch("api/grades", {
       method: "POST",
       credentials: "include" ,
       headers : {"Content-Type" : "application/json"},
@@ -60,7 +60,7 @@ export const getGrades = async (sem) => {
 
 export const getMarks = async (sem) => {
   console.log(sem)
-    const response = await fetch('http://localhost:5000/marks', {
+    const response = await fetch('api/marks', {
       method : "POST",
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({sem}),
@@ -81,7 +81,7 @@ export const getMarks = async (sem) => {
 }
 
 export const getCgpa = async () => {
-    const response = await fetch('http://localhost:5000/cgpa', {credentials:"include"})
+    const response = await fetch('api/cgpa', {credentials:"include"})
     const data = await response.text();
 
     const parsedDocument = new DOMParser().parseFromString(data, "text/html");
@@ -100,7 +100,7 @@ export const getCgpa = async () => {
 export const fetchSem = async () => {
   const sem = []
   const x = 'ALL'
-  const response = await fetch('http://localhost:5000/marks', {method:"POST", 
+  const response = await fetch('api/marks', {method:"POST", 
     headers : {'Content-Type' : 'application/json'},
     body : JSON.stringify({x}),
     credentials:"include"})
@@ -118,7 +118,7 @@ export const fetchSem = async () => {
 
 
 export const getInfo = async () => {
-    const response = await fetch('http://localhost:5000/personalinfo', {
+    const response = await fetch('api/personalinfo', {
       credentials:"include"
     })
     const data = await response.text();
